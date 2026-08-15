@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alpha Foot</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#050b12;
+color:white
+}
+header{
+padding:22px;
+border-bottom:1px solid #263542;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+.logo{
+font-size:24px;
+font-weight:900
+}
+.logo span{color:#c8ff00}
+.hero{
+padding:55px 25px;
+background:linear-gradient(135deg,#081522,#102333)
+}
+.label{
+color:#c8ff00;
+font-weight:bold;
+letter-spacing:2px
+}
+h1{
+font-size:42px;
+line-height:1;
+margin:15px 0
+}
+p{
+color:#aeb9c2;
+line-height:1.6
+}
+button{
+background:#c8ff00;
+border:0;
+padding:14px 20px;
+border-radius:8px;
+font-weight:bold
+}
+.container{
+padding:25px
+}
+.card{
+background:#0b141e;
+border:1px solid #263542;
+border-radius:14px;
+padding:20px;
+margin-bottom:18px
+}
+.match{
+display:flex;
+justify-content:space-between;
+align-items:center;
+text-align:center;
+margin:25px 0
+}
+.team{font-weight:bold}
+.crest{
+font-size:32px;
+margin-bottom:8px
+}
+.vs{color:#8d9aa6}
+.prob{
+display:flex;
+gap:8px
+}
+.prob div{
+flex:1;
+background:#101c28;
+padding:12px;
+text-align:center;
+border-radius:8px
+}
+.green{color:#c8ff00}
+.score{
+font-size:45px;
+font-weight:900;
+text-align:center;
+margin:15px
+}
+footer{
+padding:25px;
+text-align:center;
+color:#71808c;
+font-size:12px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+ALPHA <span>FOOT</span>
+</div>
+<div>⚽</div>
+</header>
+
+<section class="hero">
+<div class="label">FOOTBALL · DATA · INTELLIGENCE</div>
+
+<h1>
+Comprendre le match.<br>
+<span class="green">Anticiper le résultat.</span>
+</h1>
+
+<p>
+Des analyses football basées sur les statistiques,
+la forme, les effectifs et les probabilités.
+</p>
+
+<button onclick="document.getElementById('match').scrollIntoView()">
+Voir l'analyse
+</button>
+</section>
+
+<main class="container">
+
+<div class="card" id="match">
+
+<div class="label">LA LIGA · PREMIÈRE JOURNÉE</div>
+
+<h2>Séville vs Rayo Vallecano</h2>
+
+<div class="match">
+
+<div class="team">
+<div class="crest">🔴</div>
+SÉVILLE
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<div class="crest">⚡</div>
+RAYO
+</div>
+
+</div>
+
+<div class="prob">
+
+<div>
+<strong class="green">47%</strong><br>
+1
+</div>
+
+<div>
+<strong>29%</strong><br>
+X
+</div>
+
+<div>
+<strong>24%</strong><br>
+2
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🔮 Prédiction Alpha</h3>
+
+<div class="score">1 — 0</div>
+
+<p style="text-align:center">
+Score principal prévu
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Statistiques</h3>
+
+<p>⚽ xG Séville : <strong>1.42</strong></p>
+<p>⚽ xG Rayo : <strong>0.86</strong></p>
+<p>🔥 Confiance Alpha : <strong class="green">7.2/10</strong></p>
+
+</div>
+
+<div class="card">
+
+<h3>🧠 Analyse Alpha</h3>
+
+<p>
+Séville présente un avantage statistique avant la rencontre.
+La forme récente, l'avantage du terrain et le profil défensif
+orientent le modèle vers une victoire courte.
+</p>
+
+</div>
+
+</main>
+
+<footer>
+Alpha Foot © 2026<br>
+Football. Data. Intelligence.
+</footer>
+
+</body>
+</html>
