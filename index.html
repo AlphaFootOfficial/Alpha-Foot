@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alpha-Foot | Analyses & Prédictions</title>
+<title>Alpha-Foot</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,715 +14,614 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #05090f;
+    font-family: Arial, sans-serif;
+    background: #050a0f;
     color: white;
-    line-height: 1.5;
+    min-height: 100vh;
 }
-
-/* HEADER */
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #07111c;
-    border-bottom: 1px solid #1c2b3a;
-    padding: 15px 20px;
-}
-
-.navbar {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 35px 25px 30px;
+    border-bottom: 1px solid #26323d;
+    background: #071019;
 }
 
 .logo {
-    font-size: 27px;
-    font-weight: 900;
-    color: #c8ff00;
-    letter-spacing: -1px;
+    font-size: 42px;
+    font-weight: 800;
 }
 
 .logo span {
+    color: #b6ff00;
+}
+
+.logo-white {
     color: white;
 }
 
-nav {
-    display: flex;
-    gap: 22px;
-}
-
-nav a {
-    color: #b9c2cc;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #c8ff00;
-}
-
-/* HERO */
-
-.hero {
-    background: linear-gradient(135deg, #07121f, #0b1c2c);
-    padding: 65px 20px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 44px;
-    margin-bottom: 15px;
-}
-
-.hero h1 span {
-    color: #c8ff00;
-}
-
-.hero p {
-    max-width: 650px;
-    margin: auto;
-    color: #aeb8c3;
-    font-size: 18px;
-}
-
-.hero-button {
-    display: inline-block;
-    margin-top: 28px;
-    padding: 14px 25px;
-    background: #c8ff00;
-    color: #05090f;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 900;
-}
-
-/* CONTAINER */
-
 .container {
-    max-width: 1100px;
+    max-width: 850px;
     margin: auto;
-    padding: 35px 20px;
-}
-
-.section-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.section-title span {
-    color: #c8ff00;
-}
-
-/* MATCH CARDS */
-
-.matches {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    padding: 25px 15px 60px;
 }
 
 .match-card {
-    background: #0a1622;
-    border: 1px solid #203344;
-    border-radius: 16px;
-    padding: 22px;
-    transition: 0.2s;
-}
-
-.match-card:hover {
-    transform: translateY(-3px);
-    border-color: #c8ff00;
+    background: #091521;
+    border: 1px solid #263c4d;
+    border-radius: 28px;
+    padding: 28px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .league {
-    color: #8d9aaa;
-    font-size: 13px;
-    text-transform: uppercase;
-    font-weight: bold;
+    color: #9aa8b8;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
-.match-time {
-    color: #c8ff00;
-    font-weight: bold;
-    margin: 7px 0 18px;
+.time {
+    color: #b6ff00;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 35px;
 }
 
 .teams {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     text-align: center;
 }
 
 .team {
-    width: 42%;
+    width: 38%;
 }
 
 .team-icon {
-    font-size: 42px;
-    margin-bottom: 5px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: auto auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+}
+
+.sevilla {
+    background: linear-gradient(145deg,#ff3333,#a40000);
+}
+
+.rayo {
+    background: linear-gradient(145deg,#ffd000,#ff7900);
+}
+
+.chelsea {
+    background: linear-gradient(145deg,#1688ff,#0035aa);
+}
+
+.arsenal {
+    background: linear-gradient(145deg,#ff3838,#a00000);
+}
+
+.milan {
+    background: linear-gradient(145deg,#555,#000);
+}
+
+.inter {
+    background: linear-gradient(145deg,#1688ff,#0035aa);
 }
 
 .team-name {
-    font-weight: bold;
+    font-size: 23px;
+    font-weight: 800;
 }
 
 .vs {
-    color: #788593;
-    font-weight: bold;
-}
-
-.analysis-button {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    padding: 11px;
-    background: #132332;
-    color: white;
-    border-radius: 9px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.analysis-button:hover {
-    background: #c8ff00;
-    color: #05090f;
-}
-
-/* FEATURED */
-
-.featured {
-    margin-top: 45px;
-}
-
-.analysis-box {
-    background: #091521;
-    border: 1px solid #26394b;
-    border-radius: 20px;
-    padding: 28px;
-}
-
-.analysis-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.analysis-header p {
-    color: #8d9aaa;
-}
-
-.analysis-header h3 {
+    color: #788596;
     font-size: 25px;
-    margin-top: 8px;
+    font-weight: 800;
 }
 
-.analysis-header strong {
-    color: #c8ff00;
+.analysis-btn {
+    width: 100%;
+    margin-top: 35px;
+    padding: 18px;
+    border: none;
+    border-radius: 18px;
+    background: #142637;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.analysis-btn:active {
+    transform: scale(0.98);
+}
+
+.analysis {
+    display: none;
+    margin-top: 25px;
+    background: #07111b;
+    border: 1px solid #263c4d;
+    border-radius: 24px;
+    padding: 22px;
+}
+
+.analysis.active {
+    display: block;
+}
+
+.analysis-title {
+    color: #b6ff00;
+    font-size: 23px;
+    font-weight: 800;
+    margin-bottom: 22px;
 }
 
 .probabilities {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.probability {
-    background: #101f2d;
-    border-radius: 13px;
-    padding: 20px;
-    text-align: center;
-}
-
-.probability .percent {
-    font-size: 30px;
-    font-weight: 900;
-    color: #c8ff00;
-}
-
-.probability p {
-    color: #9aa6b3;
-    margin-top: 5px;
-}
-
-/* PREDICTION */
-
-.prediction {
-    margin-top: 25px;
+.prob {
     background: #101f2d;
     border-radius: 15px;
-    padding: 25px;
+    padding: 16px 8px;
     text-align: center;
 }
 
-.prediction h3 {
-    color: #c8ff00;
-}
-
-.score {
-    font-size: 52px;
-    font-weight: 900;
-    margin: 8px 0;
-}
-
-/* STATS */
-
-.stats {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-}
-
-.stat {
-    background: #101f2d;
-    padding: 18px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.stat strong {
+.prob strong {
     display: block;
-    font-size: 24px;
-    color: #c8ff00;
+    color: #b6ff00;
+    font-size: 25px;
 }
 
-.stat span {
-    color: #8e9aa7;
+.prob span {
+    color: #9aa8b8;
     font-size: 13px;
 }
 
-/* PREMIUM */
-
-.premium {
-    margin-top: 50px;
-    background: linear-gradient(135deg, #111d28, #172838);
-    border: 1px solid #405264;
-    border-radius: 20px;
-    padding: 35px 25px;
+.score {
+    background: #101f2d;
+    border-radius: 18px;
     text-align: center;
+    padding: 20px;
+    margin-bottom: 15px;
 }
 
-.premium h2 {
-    font-size: 30px;
+.score-label {
+    color: #9aa8b8;
+    margin-bottom: 8px;
 }
 
-.premium h2 span {
-    color: #c8ff00;
-}
-
-.premium p {
-    color: #a8b2bd;
-    margin: 12px auto 22px;
-    max-width: 600px;
-}
-
-.premium-button {
-    display: inline-block;
-    background: #c8ff00;
-    color: #05090f;
-    padding: 13px 25px;
-    border-radius: 9px;
-    text-decoration: none;
+.score-value {
+    font-size: 42px;
     font-weight: 900;
 }
 
-/* FOOTER */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
 
-footer {
-    margin-top: 60px;
-    border-top: 1px solid #1c2b3a;
-    padding: 30px 20px;
+.info {
+    background: #101f2d;
+    padding: 16px;
+    border-radius: 15px;
+}
+
+.info-label {
+    color: #8e9baa;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.info-value {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.confidence {
+    margin-top: 18px;
+    padding: 18px;
     text-align: center;
-    color: #758291;
+    border-radius: 16px;
+    background: #142637;
 }
 
-footer strong {
-    color: #c8ff00;
+.confidence span {
+    color: #b6ff00;
+    font-size: 25px;
+    font-weight: 900;
 }
 
-/* MOBILE */
+.conclusion {
+    margin-top: 18px;
+    padding: 18px;
+    background: #101f2d;
+    border-radius: 16px;
+    line-height: 1.5;
+    color: #d6dde5;
+}
 
-@media (max-width: 750px) {
+@media(max-width:600px) {
 
-    nav {
-        display: none;
+    .logo {
+        font-size: 38px;
     }
 
-    .hero h1 {
-        font-size: 34px;
+    .team-icon {
+        width: 70px;
+        height: 70px;
     }
 
-    .matches {
-        grid-template-columns: 1fr;
+    .team-name {
+        font-size: 20px;
     }
 
     .probabilities {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .info-grid {
         grid-template-columns: 1fr;
     }
-
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .container {
-        padding: 28px 15px;
-    }
-
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="navbar">
-
-<div class="logo">
-Alpha<span>-Foot</span>
-</div>
-
-<nav>
-<a href="#accueil">Accueil</a>
-<a href="#matchs">Matchs</a>
-<a href="#analyses">Analyses</a>
-<a href="#premium">Premium</a>
-</nav>
-
-</div>
-
+    <div class="logo">
+        <span>Alpha</span><span class="logo-white">-Foot</span>
+    </div>
 </header>
 
+<div class="container">
 
-<section class="hero" id="accueil">
+    <!-- SÉVILLE - RAYO -->
+    <div class="match-card">
 
-<h1>
-Bienvenue sur <span>Alpha-Foot</span>
-</h1>
+        <div class="league">LA LIGA</div>
+        <div class="time">21:00</div>
 
-<p>
-Analyses football, statistiques et prédictions.
-Notre objectif : transformer les données en analyses simples, claires et intelligentes.
-</p>
+        <div class="teams">
 
-<a href="#matchs" class="hero-button">
-Voir les matchs
-</a>
+            <div class="team">
+                <div class="team-icon sevilla">🔴</div>
+                <div class="team-name">Séville</div>
+            </div>
 
-</section>
+            <div class="vs">VS</div>
+
+            <div class="team">
+                <div class="team-icon rayo">⚡</div>
+                <div class="team-name">Rayo</div>
+            </div>
+
+        </div>
+
+        <button class="analysis-btn"
+        onclick="showAnalysis('sevilla')">
+            Voir l'analyse
+        </button>
+
+        <div id="sevilla" class="analysis">
+
+            <div class="analysis-title">
+                ⚡ ANALYSE ALPHA
+            </div>
+
+            <div class="probabilities">
+
+                <div class="prob">
+                    <strong>47%</strong>
+                    <span>Victoire Séville</span>
+                </div>
+
+                <div class="prob">
+                    <strong>29%</strong>
+                    <span>Match nul</span>
+                </div>
+
+                <div class="prob">
+                    <strong>24%</strong>
+                    <span>Victoire Rayo</span>
+                </div>
+
+            </div>
+
+            <div class="score">
+                <div class="score-label">
+                    🎯 Score probable
+                </div>
+
+                <div class="score-value">
+                    1 - 0
+                </div>
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info">
+                    <div class="info-label">Mi-temps</div>
+                    <div class="info-value">1 - 0</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">Mi-temps / Fin</div>
+                    <div class="info-value">Séville / Séville</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">BTTS</div>
+                    <div class="info-value">Non</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">Over / Under</div>
+                    <div class="info-value">Under 2.5</div>
+                </div>
+
+            </div>
+
+            <div class="confidence">
+                Confiance Alpha<br>
+                <span>7.2 / 10</span>
+            </div>
+
+            <div class="conclusion">
+                <strong>Conclusion :</strong><br><br>
+                Alpha-Foot donne un léger avantage à Séville.
+                Le scénario privilégié est une rencontre relativement
+                fermée avec une victoire 1-0.
+            </div>
+
+        </div>
+
+    </div>
 
 
-<div class="container" id="matchs">
+    <!-- CHELSEA - ARSENAL -->
+    <div class="match-card">
 
-<h2 class="section-title">
-⚽ Matchs <span>du jour</span>
-</h2>
+        <div class="league">PREMIER LEAGUE</div>
+        <div class="time">20:30</div>
 
-<div class="matches">
+        <div class="teams">
+
+            <div class="team">
+                <div class="team-icon chelsea">🔵</div>
+                <div class="team-name">Chelsea</div>
+            </div>
+
+            <div class="vs">VS</div>
+
+            <div class="team">
+                <div class="team-icon arsenal">🔴</div>
+                <div class="team-name">Arsenal</div>
+            </div>
+
+        </div>
+
+        <button class="analysis-btn"
+        onclick="showAnalysis('chelsea')">
+            Voir l'analyse
+        </button>
+
+        <div id="chelsea" class="analysis">
+
+            <div class="analysis-title">
+                ⚡ ANALYSE ALPHA
+            </div>
+
+            <div class="probabilities">
+
+                <div class="prob">
+                    <strong>31%</strong>
+                    <span>Victoire Chelsea</span>
+                </div>
+
+                <div class="prob">
+                    <strong>28%</strong>
+                    <span>Match nul</span>
+                </div>
+
+                <div class="prob">
+                    <strong>41%</strong>
+                    <span>Victoire Arsenal</span>
+                </div>
+
+            </div>
+
+            <div class="score">
+                <div class="score-label">
+                    🎯 Score probable
+                </div>
+
+                <div class="score-value">
+                    1 - 2
+                </div>
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info">
+                    <div class="info-label">Mi-temps</div>
+                    <div class="info-value">0 - 1</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">Mi-temps / Fin</div>
+                    <div class="info-value">Arsenal / Arsenal</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">BTTS</div>
+                    <div class="info-value">Oui</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">Over / Under</div>
+                    <div class="info-value">Over 2.5</div>
+                </div>
+
+            </div>
+
+            <div class="confidence">
+                Confiance Alpha<br>
+                <span>7.5 / 10</span>
+            </div>
+
+            <div class="conclusion">
+                <strong>Conclusion :</strong><br><br>
+                Arsenal possède un avantage théorique.
+                Alpha-Foot privilégie un match ouvert avec
+                des occasions des deux côtés.
+            </div>
+
+        </div>
+
+    </div>
 
 
-<div class="match-card">
+    <!-- MILAN - INTER -->
+    <div class="match-card">
 
-<div class="league">
-La Liga
+        <div class="league">SERIE A</div>
+        <div class="time">19:45</div>
+
+        <div class="teams">
+
+            <div class="team">
+                <div class="team-icon milan">⚫</div>
+                <div class="team-name">Milan</div>
+            </div>
+
+            <div class="vs">VS</div>
+
+            <div class="team">
+                <div class="team-icon inter">🔵</div>
+                <div class="team-name">Inter</div>
+            </div>
+
+        </div>
+
+        <button class="analysis-btn"
+        onclick="showAnalysis('milan')">
+            Voir l'analyse
+        </button>
+
+        <div id="milan" class="analysis">
+
+            <div class="analysis-title">
+                ⚡ ANALYSE ALPHA
+            </div>
+
+            <div class="probabilities">
+
+                <div class="prob">
+                    <strong>27%</strong>
+                    <span>Victoire Milan</span>
+                </div>
+
+                <div class="prob">
+                    <strong>30%</strong>
+                    <span>Match nul</span>
+                </div>
+
+                <div class="prob">
+                    <strong>43%</strong>
+                    <span>Victoire Inter</span>
+                </div>
+
+            </div>
+
+            <div class="score">
+                <div class="score-label">
+                    🎯 Score probable
+                </div>
+
+                <div class="score-value">
+                    1 - 2
+                </div>
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info">
+                    <div class="info-label">Mi-temps</div>
+                    <div class="info-value">0 - 1</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">Mi-temps / Fin</div>
+                    <div class="info-value">Inter / Inter</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">BTTS</div>
+                    <div class="info-value">Oui</div>
+                </div>
+
+                <div class="info">
+                    <div class="info-label">Over / Under</div>
+                    <div class="info-value">Over 2.5</div>
+                </div>
+
+            </div>
+
+            <div class="confidence">
+                Confiance Alpha<br>
+                <span>7.1 / 10</span>
+            </div>
+
+            <div class="conclusion">
+                <strong>Conclusion :</strong><br><br>
+                L'Inter possède un avantage dans ce scénario.
+                Une rencontre équilibrée mais avec une légère
+                supériorité offensive de l'Inter est privilégiée.
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="match-time">
-21:00
-</div>
 
-<div class="teams">
+<script>
 
-<div class="team">
+function showAnalysis(id) {
 
-<div class="team-icon">🔴</div>
+    const analysis = document.getElementById(id);
 
-<div class="team-name">
-Séville
-</div>
+    if (analysis.classList.contains("active")) {
 
-</div>
+        analysis.classList.remove("active");
 
-<div class="vs">
-VS
-</div>
+    } else {
 
-<div class="team">
+        analysis.classList.add("active");
 
-<div class="team-icon">⚡</div>
+        setTimeout(() => {
+            analysis.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 100);
+    }
+}
 
-<div class="team-name">
-Rayo
-</div>
-
-</div>
-
-</div>
-
-<a href="#analyses" class="analysis-button">
-Voir l'analyse
-</a>
-
-</div>
-
-
-<div class="match-card">
-
-<div class="league">
-Premier League
-</div>
-
-<div class="match-time">
-20:30
-</div>
-
-<div class="teams">
-
-<div class="team">
-
-<div class="team-icon">🔵</div>
-
-<div class="team-name">
-Chelsea
-</div>
-
-</div>
-
-<div class="vs">
-VS
-</div>
-
-<div class="team">
-
-<div class="team-icon">🔴</div>
-
-<div class="team-name">
-Arsenal
-</div>
-
-</div>
-
-</div>
-
-<a href="#analyses" class="analysis-button">
-Voir l'analyse
-</a>
-
-</div>
-
-
-<div class="match-card">
-
-<div class="league">
-Serie A
-</div>
-
-<div class="match-time">
-19:45
-</div>
-
-<div class="teams">
-
-<div class="team">
-
-<div class="team-icon">⚫</div>
-
-<div class="team-name">
-Milan
-</div>
-
-</div>
-
-<div class="vs">
-VS
-</div>
-
-<div class="team">
-
-<div class="team-icon">🔵</div>
-
-<div class="team-name">
-Inter
-</div>
-
-</div>
-
-</div>
-
-<a href="#analyses" class="analysis-button">
-Voir l'analyse
-</a>
-
-</div>
-
-
-</div>
-
-
-<section class="featured" id="analyses">
-
-<h2 class="section-title">
-📊 Analyse <span>Alpha</span>
-</h2>
-
-<div class="analysis-box">
-
-<div class="analysis-header">
-
-<p>LA LIGA · 1ÈRE JOURNÉE</p>
-
-<h3>
-Séville <strong>VS</strong> Rayo
-</h3>
-
-</div>
-
-
-<div class="probabilities">
-
-<div class="probability">
-
-<div class="percent">
-47%
-</div>
-
-<p>
-Victoire Séville
-</p>
-
-</div>
-
-
-<div class="probability">
-
-<div class="percent">
-29%
-</div>
-
-<p>
-Match nul
-</p>
-
-</div>
-
-
-<div class="probability">
-
-<div class="percent">
-24%
-</div>
-
-<p>
-Victoire Rayo
-</p>
-
-</div>
-
-</div>
-
-
-<div class="prediction">
-
-<h3>
-🎯 PRÉDICTION ALPHA
-</h3>
-
-<div class="score">
-1 — 0
-</div>
-
-<p>
-Score exact le plus probable
-</p>
-
-</div>
-
-
-<div class="stats">
-
-<div class="stat">
-
-<strong>7.2/10</strong>
-
-<span>
-Confiance Alpha
-</span>
-
-</div>
-
-<div class="stat">
-
-<strong>1.35</strong>
-
-<span>
-Buts attendus
-</span>
-
-</div>
-
-<div class="stat">
-
-<strong>54%</strong>
-
-<span>
-Over 1.5
-</span>
-
-</div>
-
-<div class="stat">
-
-<strong>42%</strong>
-
-<span>
-BTTS
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="premium" id="premium">
-
-<h2>
-⭐ Alpha-Foot <span>Premium</span>
-</h2>
-
-<p>
-Accédez prochainement aux analyses avancées,
-statistiques détaillées, prédictions premium et outils exclusifs Alpha.
-</p>
-
-<a href="#" class="premium-button">
-Bientôt disponible
-</a>
-
-</section>
-
-</div>
-
-
-<footer>
-
-<p>
-<strong>Alpha-Foot</strong> · Football Analytics & Predictions
-</p>
-
-<p>
-© 2026 Alpha-Foot. Tous droits réservés.
-</p>
-
-</footer>
+</script>
 
 </body>
 </html>
