@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alpha-Foot</title>
+<title>Alpha-Foot — Analyse Football</title>
 
 <style>
 * {
@@ -21,51 +22,122 @@ body {
 }
 
 header {
-    padding: 35px 25px 30px;
-    border-bottom: 1px solid #26323d;
+    padding: 32px 20px 25px;
     background: #071019;
+    border-bottom: 1px solid #26323d;
 }
 
 .logo {
-    font-size: 42px;
-    font-weight: 800;
+    font-size: 40px;
+    font-weight: 900;
 }
 
-.logo span {
+.alpha {
     color: #b6ff00;
 }
 
-.logo-white {
+.white {
     color: white;
 }
+
+.subtitle {
+    color: #8e9baa;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* CONTENEUR */
 
 .container {
     max-width: 850px;
     margin: auto;
-    padding: 25px 15px 60px;
+    padding: 20px 15px 60px;
 }
+
+/* RECHERCHE */
+
+.search-box {
+    margin-bottom: 18px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 17px 18px;
+    border-radius: 16px;
+    border: 1px solid #263c4d;
+    background: #0b1722;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #b6ff00;
+}
+
+/* FILTRES */
+
+.filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+}
+
+.filter {
+    flex-shrink: 0;
+    border: 1px solid #263c4d;
+    background: #101f2d;
+    color: #b7c0ca;
+    padding: 11px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.filter.active {
+    background: #b6ff00;
+    color: #050a0f;
+    border-color: #b6ff00;
+}
+
+/* TITRE */
+
+.section-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.section-title span {
+    color: #b6ff00;
+}
+
+/* MATCH */
 
 .match-card {
     background: #091521;
     border: 1px solid #263c4d;
-    border-radius: 28px;
-    padding: 28px 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border-radius: 25px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.match-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .league {
     color: #9aa8b8;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .time {
     color: #b6ff00;
-    font-size: 30px;
-    font-weight: 800;
-    margin-bottom: 35px;
+    font-weight: 900;
 }
 
 .teams {
@@ -73,25 +145,26 @@ header {
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    margin-top: 28px;
 }
 
 .team {
-    width: 38%;
+    width: 40%;
 }
 
 .team-icon {
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-    margin: auto auto 18px;
+    margin: auto auto 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 38px;
+    font-size: 30px;
 }
 
 .sevilla {
-    background: linear-gradient(145deg,#ff3333,#a40000);
+    background: linear-gradient(145deg,#ff3838,#990000);
 }
 
 .rayo {
@@ -103,7 +176,7 @@ header {
 }
 
 .arsenal {
-    background: linear-gradient(145deg,#ff3838,#a00000);
+    background: linear-gradient(145deg,#ff3838,#990000);
 }
 
 .milan {
@@ -114,41 +187,53 @@ header {
     background: linear-gradient(145deg,#1688ff,#0035aa);
 }
 
+.barca {
+    background: linear-gradient(145deg,#6535ff,#b00030);
+}
+
+.real {
+    background: linear-gradient(145deg,#eeeeee,#777);
+    color: #111;
+}
+
 .team-name {
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 800;
 }
 
 .vs {
-    color: #788596;
-    font-size: 25px;
-    font-weight: 800;
+    color: #778493;
+    font-weight: 900;
 }
+
+/* BOUTON */
 
 .analysis-btn {
     width: 100%;
-    margin-top: 35px;
-    padding: 18px;
+    margin-top: 25px;
+    padding: 16px;
     border: none;
-    border-radius: 18px;
+    border-radius: 15px;
     background: #142637;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 800;
     cursor: pointer;
 }
 
-.analysis-btn:active {
-    transform: scale(0.98);
+.analysis-btn:hover {
+    background: #1b3449;
 }
+
+/* ANALYSE */
 
 .analysis {
     display: none;
-    margin-top: 25px;
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 20px;
     background: #07111b;
     border: 1px solid #263c4d;
-    border-radius: 24px;
-    padding: 22px;
 }
 
 .analysis.active {
@@ -157,121 +242,138 @@ header {
 
 .analysis-title {
     color: #b6ff00;
-    font-size: 23px;
-    font-weight: 800;
-    margin-bottom: 22px;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 18px;
 }
 
 .probabilities {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
 }
 
 .prob {
-    background: #101f2d;
-    border-radius: 15px;
-    padding: 16px 8px;
     text-align: center;
+    background: #101f2d;
+    padding: 14px 5px;
+    border-radius: 14px;
 }
 
 .prob strong {
     display: block;
     color: #b6ff00;
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .prob span {
-    color: #9aa8b8;
-    font-size: 13px;
+    color: #8e9baa;
+    font-size: 11px;
 }
 
 .score {
+    margin-top: 12px;
+    padding: 18px;
     background: #101f2d;
-    border-radius: 18px;
+    border-radius: 15px;
     text-align: center;
-    padding: 20px;
-    margin-bottom: 15px;
 }
 
 .score-label {
-    color: #9aa8b8;
-    margin-bottom: 8px;
+    color: #8e9baa;
+    font-size: 13px;
 }
 
 .score-value {
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 900;
+    margin-top: 5px;
 }
 
 .info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 8px;
+    margin-top: 12px;
 }
 
 .info {
     background: #101f2d;
-    padding: 16px;
-    border-radius: 15px;
+    padding: 13px;
+    border-radius: 13px;
 }
 
 .info-label {
     color: #8e9baa;
-    font-size: 13px;
-    margin-bottom: 7px;
+    font-size: 11px;
 }
 
 .info-value {
-    font-size: 17px;
+    margin-top: 5px;
     font-weight: 800;
 }
 
 .confidence {
-    margin-top: 18px;
-    padding: 18px;
+    margin-top: 12px;
+    padding: 15px;
     text-align: center;
-    border-radius: 16px;
     background: #142637;
+    border-radius: 14px;
 }
 
 .confidence span {
+    display: block;
     color: #b6ff00;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 900;
+    margin-top: 5px;
 }
 
 .conclusion {
-    margin-top: 18px;
-    padding: 18px;
+    margin-top: 12px;
+    padding: 15px;
     background: #101f2d;
-    border-radius: 16px;
+    border-radius: 14px;
+    color: #cbd3dc;
     line-height: 1.5;
-    color: #d6dde5;
+    font-size: 14px;
+}
+
+/* MESSAGE AUCUN MATCH */
+
+.no-match {
+    display: none;
+    text-align: center;
+    color: #8e9baa;
+    padding: 40px 15px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    color: #596674;
+    font-size: 12px;
+    padding: 30px 15px;
 }
 
 @media(max-width:600px) {
 
     .logo {
-        font-size: 38px;
+        font-size: 36px;
     }
 
-    .team-icon {
-        width: 70px;
-        height: 70px;
+    .match-card {
+        padding: 18px;
     }
 
     .team-name {
-        font-size: 20px;
+        font-size: 17px;
     }
 
-    .probabilities {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .info-grid {
-        grid-template-columns: 1fr;
+    .team-icon {
+        width: 60px;
+        height: 60px;
     }
 }
 </style>
@@ -280,41 +382,133 @@ header {
 <body>
 
 <header>
+
     <div class="logo">
-        <span>Alpha</span><span class="logo-white">-Foot</span>
+        <span class="alpha">Alpha</span><span class="white">-Foot</span>
     </div>
+
+    <div class="subtitle">
+        Football analytics & prediction platform
+    </div>
+
 </header>
+
 
 <div class="container">
 
-    <!-- SÉVILLE - RAYO -->
-    <div class="match-card">
+    <!-- RECHERCHE -->
 
-        <div class="league">LA LIGA</div>
-        <div class="time">21:00</div>
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 Rechercher une équipe..."
+            oninput="filterMatches()"
+        >
+
+    </div>
+
+
+    <!-- FILTRES -->
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            onclick="setLeague('all', this)">
+            Tous
+        </button>
+
+        <button
+            class="filter"
+            onclick="setLeague('La Liga', this)">
+            La Liga
+        </button>
+
+        <button
+            class="filter"
+            onclick="setLeague('Premier League', this)">
+            Premier League
+        </button>
+
+        <button
+            class="filter"
+            onclick="setLeague('Serie A', this)">
+            Serie A
+        </button>
+
+        <button
+            class="filter"
+            onclick="setLeague('Liga', this)">
+            Liga
+        </button>
+
+    </div>
+
+
+    <div class="section-title">
+        Matchs <span>du jour</span>
+    </div>
+
+
+    <!-- SÉVILLE RAYO -->
+
+    <div
+        class="match-card"
+        data-league="La Liga"
+        data-teams="séville rayo"
+    >
+
+        <div class="match-top">
+            <div class="league">LA LIGA</div>
+            <div class="time">21:00</div>
+        </div>
 
         <div class="teams">
 
             <div class="team">
-                <div class="team-icon sevilla">🔴</div>
-                <div class="team-name">Séville</div>
+
+                <div class="team-icon sevilla">
+                    🔴
+                </div>
+
+                <div class="team-name">
+                    Séville
+                </div>
+
             </div>
 
-            <div class="vs">VS</div>
+            <div class="vs">
+                VS
+            </div>
 
             <div class="team">
-                <div class="team-icon rayo">⚡</div>
-                <div class="team-name">Rayo</div>
+
+                <div class="team-icon rayo">
+                    ⚡
+                </div>
+
+                <div class="team-name">
+                    Rayo
+                </div>
+
             </div>
 
         </div>
 
-        <button class="analysis-btn"
-        onclick="showAnalysis('sevilla')">
+        <button
+            class="analysis-btn"
+            onclick="toggleAnalysis('analysis-sevilla')">
+
             Voir l'analyse
+
         </button>
 
-        <div id="sevilla" class="analysis">
+
+        <div
+            id="analysis-sevilla"
+            class="analysis">
 
             <div class="analysis-title">
                 ⚡ ANALYSE ALPHA
@@ -324,22 +518,23 @@ header {
 
                 <div class="prob">
                     <strong>47%</strong>
-                    <span>Victoire Séville</span>
+                    <span>Séville</span>
                 </div>
 
                 <div class="prob">
                     <strong>29%</strong>
-                    <span>Match nul</span>
+                    <span>Nul</span>
                 </div>
 
                 <div class="prob">
                     <strong>24%</strong>
-                    <span>Victoire Rayo</span>
+                    <span>Rayo</span>
                 </div>
 
             </div>
 
             <div class="score">
+
                 <div class="score-label">
                     🎯 Score probable
                 </div>
@@ -347,6 +542,7 @@ header {
                 <div class="score-value">
                     1 - 0
                 </div>
+
             </div>
 
             <div class="info-grid">
@@ -367,22 +563,30 @@ header {
                 </div>
 
                 <div class="info">
-                    <div class="info-label">Over / Under</div>
+                    <div class="info-label">Total buts</div>
                     <div class="info-value">Under 2.5</div>
                 </div>
 
             </div>
 
             <div class="confidence">
-                Confiance Alpha<br>
-                <span>7.2 / 10</span>
+
+                Confiance Alpha
+
+                <span>
+                    7.2 / 10
+                </span>
+
             </div>
 
             <div class="conclusion">
+
                 <strong>Conclusion :</strong><br><br>
-                Alpha-Foot donne un léger avantage à Séville.
-                Le scénario privilégié est une rencontre relativement
-                fermée avec une victoire 1-0.
+
+                Léger avantage à Séville.
+                Le scénario privilégié est une rencontre
+                relativement fermée avec un score de 1-0.
+
             </div>
 
         </div>
@@ -390,34 +594,63 @@ header {
     </div>
 
 
-    <!-- CHELSEA - ARSENAL -->
-    <div class="match-card">
+    <!-- CHELSEA ARSENAL -->
 
-        <div class="league">PREMIER LEAGUE</div>
-        <div class="time">20:30</div>
+    <div
+        class="match-card"
+        data-league="Premier League"
+        data-teams="chelsea arsenal"
+    >
+
+        <div class="match-top">
+            <div class="league">PREMIER LEAGUE</div>
+            <div class="time">20:30</div>
+        </div>
 
         <div class="teams">
 
             <div class="team">
-                <div class="team-icon chelsea">🔵</div>
-                <div class="team-name">Chelsea</div>
+
+                <div class="team-icon chelsea">
+                    🔵
+                </div>
+
+                <div class="team-name">
+                    Chelsea
+                </div>
+
             </div>
 
-            <div class="vs">VS</div>
+            <div class="vs">
+                VS
+            </div>
 
             <div class="team">
-                <div class="team-icon arsenal">🔴</div>
-                <div class="team-name">Arsenal</div>
+
+                <div class="team-icon arsenal">
+                    🔴
+                </div>
+
+                <div class="team-name">
+                    Arsenal
+                </div>
+
             </div>
 
         </div>
 
-        <button class="analysis-btn"
-        onclick="showAnalysis('chelsea')">
+        <button
+            class="analysis-btn"
+            onclick="toggleAnalysis('analysis-chelsea')">
+
             Voir l'analyse
+
         </button>
 
-        <div id="chelsea" class="analysis">
+
+        <div
+            id="analysis-chelsea"
+            class="analysis">
 
             <div class="analysis-title">
                 ⚡ ANALYSE ALPHA
@@ -427,22 +660,23 @@ header {
 
                 <div class="prob">
                     <strong>31%</strong>
-                    <span>Victoire Chelsea</span>
+                    <span>Chelsea</span>
                 </div>
 
                 <div class="prob">
                     <strong>28%</strong>
-                    <span>Match nul</span>
+                    <span>Nul</span>
                 </div>
 
                 <div class="prob">
                     <strong>41%</strong>
-                    <span>Victoire Arsenal</span>
+                    <span>Arsenal</span>
                 </div>
 
             </div>
 
             <div class="score">
+
                 <div class="score-label">
                     🎯 Score probable
                 </div>
@@ -450,6 +684,7 @@ header {
                 <div class="score-value">
                     1 - 2
                 </div>
+
             </div>
 
             <div class="info-grid">
@@ -470,22 +705,30 @@ header {
                 </div>
 
                 <div class="info">
-                    <div class="info-label">Over / Under</div>
+                    <div class="info-label">Total buts</div>
                     <div class="info-value">Over 2.5</div>
                 </div>
 
             </div>
 
             <div class="confidence">
-                Confiance Alpha<br>
-                <span>7.5 / 10</span>
+
+                Confiance Alpha
+
+                <span>
+                    7.5 / 10
+                </span>
+
             </div>
 
             <div class="conclusion">
+
                 <strong>Conclusion :</strong><br><br>
+
                 Arsenal possède un avantage théorique.
-                Alpha-Foot privilégie un match ouvert avec
-                des occasions des deux côtés.
+                Le scénario privilégié est une rencontre
+                ouverte avec des occasions des deux côtés.
+
             </div>
 
         </div>
@@ -493,34 +736,63 @@ header {
     </div>
 
 
-    <!-- MILAN - INTER -->
-    <div class="match-card">
+    <!-- MILAN INTER -->
 
-        <div class="league">SERIE A</div>
-        <div class="time">19:45</div>
+    <div
+        class="match-card"
+        data-league="Serie A"
+        data-teams="milan inter"
+    >
+
+        <div class="match-top">
+            <div class="league">SERIE A</div>
+            <div class="time">19:45</div>
+        </div>
 
         <div class="teams">
 
             <div class="team">
-                <div class="team-icon milan">⚫</div>
-                <div class="team-name">Milan</div>
+
+                <div class="team-icon milan">
+                    ⚫
+                </div>
+
+                <div class="team-name">
+                    Milan
+                </div>
+
             </div>
 
-            <div class="vs">VS</div>
+            <div class="vs">
+                VS
+            </div>
 
             <div class="team">
-                <div class="team-icon inter">🔵</div>
-                <div class="team-name">Inter</div>
+
+                <div class="team-icon inter">
+                    🔵
+                </div>
+
+                <div class="team-name">
+                    Inter
+                </div>
+
             </div>
 
         </div>
 
-        <button class="analysis-btn"
-        onclick="showAnalysis('milan')">
+        <button
+            class="analysis-btn"
+            onclick="toggleAnalysis('analysis-milan')">
+
             Voir l'analyse
+
         </button>
 
-        <div id="milan" class="analysis">
+
+        <div
+            id="analysis-milan"
+            class="analysis">
 
             <div class="analysis-title">
                 ⚡ ANALYSE ALPHA
@@ -530,22 +802,23 @@ header {
 
                 <div class="prob">
                     <strong>27%</strong>
-                    <span>Victoire Milan</span>
+                    <span>Milan</span>
                 </div>
 
                 <div class="prob">
                     <strong>30%</strong>
-                    <span>Match nul</span>
+                    <span>Nul</span>
                 </div>
 
                 <div class="prob">
                     <strong>43%</strong>
-                    <span>Victoire Inter</span>
+                    <span>Inter</span>
                 </div>
 
             </div>
 
             <div class="score">
+
                 <div class="score-label">
                     🎯 Score probable
                 </div>
@@ -553,6 +826,7 @@ header {
                 <div class="score-value">
                     1 - 2
                 </div>
+
             </div>
 
             <div class="info-grid">
@@ -573,52 +847,149 @@ header {
                 </div>
 
                 <div class="info">
-                    <div class="info-label">Over / Under</div>
+                    <div class="info-label">Total buts</div>
                     <div class="info-value">Over 2.5</div>
                 </div>
 
             </div>
 
             <div class="confidence">
-                Confiance Alpha<br>
-                <span>7.1 / 10</span>
+
+                Confiance Alpha
+
+                <span>
+                    7.1 / 10
+                </span>
+
             </div>
 
             <div class="conclusion">
+
                 <strong>Conclusion :</strong><br><br>
+
                 L'Inter possède un avantage dans ce scénario.
                 Une rencontre équilibrée mais avec une légère
                 supériorité offensive de l'Inter est privilégiée.
+
             </div>
 
         </div>
 
     </div>
 
+
+    <div id="noMatch" class="no-match">
+        Aucun match trouvé.
+    </div>
+
 </div>
+
+
+<footer>
+    Alpha-Foot © 2026 — Football Analytics
+</footer>
 
 
 <script>
 
-function showAnalysis(id) {
+let currentLeague = "all";
+
+
+function toggleAnalysis(id) {
 
     const analysis = document.getElementById(id);
 
+    analysis.classList.toggle("active");
+
     if (analysis.classList.contains("active")) {
 
-        analysis.classList.remove("active");
+        setTimeout(function() {
 
-    } else {
-
-        analysis.classList.add("active");
-
-        setTimeout(() => {
             analysis.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
+
         }, 100);
+
     }
+
+}
+
+
+function setLeague(league, button) {
+
+    currentLeague = league;
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    filterMatches();
+
+}
+
+
+function filterMatches() {
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(".match-card");
+
+    let visible = 0;
+
+    cards.forEach(function(card) {
+
+        const league =
+            card.dataset.league;
+
+        const teams =
+            card.dataset.teams;
+
+        const leagueMatch =
+            currentLeague === "all" ||
+            league === currentLeague;
+
+        const searchMatch =
+            teams.includes(search);
+
+        if (leagueMatch && searchMatch) {
+
+            card.style.display = "block";
+            visible++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    const noMatch =
+        document.getElementById("noMatch");
+
+    if (visible === 0) {
+
+        noMatch.style.display = "block";
+
+    } else {
+
+        noMatch.style.display = "none";
+
+    }
+
 }
 
 </script>
