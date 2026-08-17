@@ -19,8 +19,8 @@ const alphaMatches = [
             alternatif2: "1 — 1"
         },
 
-        halftime: "1 — 0",
-        fulltime: "Séville",
+        halftime: "Séville",
+        fulltime: "Victoire Séville",
 
         markets: {
             btts: "Non",
@@ -39,7 +39,7 @@ const alphaMatches = [
             "Séville possède un léger avantage dans cette projection. L'équipe devrait chercher à contrôler le rythme tandis que Rayo pourrait principalement exploiter les transitions.",
 
         scenario:
-            "Le scénario privilégié est un match relativement fermé, avec Séville dominant progressivement et Rayo cherchant principalement à jouer en transition.",
+            "Séville pourrait prendre l'avantage en première période puis chercher à contrôler le résultat. Rayo devrait principalement compter sur les transitions.",
 
         risk:
             "Un but rapide de Rayo pourrait complètement modifier le scénario."
@@ -65,8 +65,8 @@ const alphaMatches = [
             alternatif2: "0 — 2"
         },
 
-        halftime: "0 — 1",
-        fulltime: "Arsenal",
+        halftime: "Arsenal",
+        fulltime: "Victoire Arsenal",
 
         markets: {
             btts: "Oui",
@@ -85,7 +85,7 @@ const alphaMatches = [
             "Arsenal possède un léger avantage dans cette projection. Chelsea peut cependant poser des problèmes à domicile.",
 
         scenario:
-            "Arsenal pourrait chercher à imposer son rythme tandis que Chelsea devrait profiter de son avantage à domicile pour créer des occasions.",
+            "Arsenal pourrait chercher à imposer son rythme tandis que Chelsea tentera de profiter de son avantage à domicile.",
 
         risk:
             "L'avantage du terrain de Chelsea représente le principal facteur d'incertitude."
@@ -111,8 +111,8 @@ const alphaMatches = [
             alternatif2: "0 — 1"
         },
 
-        halftime: "0 — 1",
-        fulltime: "Inter",
+        halftime: "Inter",
+        fulltime: "Victoire Inter",
 
         markets: {
             btts: "Oui",
@@ -131,7 +131,7 @@ const alphaMatches = [
             "L'Inter possède un avantage dans cette projection grâce à son équilibre collectif.",
 
         scenario:
-            "L'Inter pourrait chercher à contrôler le milieu de terrain tandis que Milan tentera de profiter des espaces et des transitions offensives.",
+            "L'Inter pourrait progressivement prendre le contrôle du milieu et créer davantage d'occasions au fil du match.",
 
         risk:
             "Un match très fermé pourrait favoriser le scénario du nul."
