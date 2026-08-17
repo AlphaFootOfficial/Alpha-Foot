@@ -133,8 +133,53 @@ const alphaMatches = [
         scenario:
             "L'Inter pourrait progressivement prendre le contrôle du milieu et créer davantage d'occasions au fil du match.",
 
-        risk:
+                risk:
             "Un match très fermé pourrait favoriser le scénario du nul."
+    },
+
+    {
+        league: "BUNDESLIGA",
+        time: "20:30",
+
+        home: "Bayern",
+        away: "Dortmund",
+
+        probabilities: {
+            home: 55,
+            draw: 24,
+            away: 21
+        },
+
+        score: {
+            principal: "2 — 1",
+            alternatif1: "3 — 1",
+            alternatif2: "2 — 2"
+        },
+
+        halftime: "Bayern",
+        fulltime: "Victoire Bayern",
+
+        markets: {
+            btts: "Oui",
+            over15: "Oui",
+            over25: "Oui",
+            over35: "Non"
+        },
+
+        goals: "Plus de 2,5 buts",
+
+        confidence: 7.4,
+
+        keyPlayer: "Secteur offensif du Bayern",
+
+        analysis:
+            "Le Bayern possède un avantage dans cette projection grâce à sa capacité à créer des occasions et à contrôler les phases offensives.",
+
+        scenario:
+            "Le Bayern devrait chercher à imposer son rythme tandis que Dortmund pourrait tenter d'exploiter les espaces en transition.",
+
+        risk:
+            "La capacité de Dortmund à profiter des transitions représente le principal facteur d'incertitude."
     }
 
 ];
