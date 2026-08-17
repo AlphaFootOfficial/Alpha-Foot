@@ -2,11 +2,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("⚽ Alpha-Foot V7 démarré");
 
-    // Vérification des données
+    // Vérification de matches.js
     if (typeof alphaMatches === "undefined") {
-        console.error("Alpha-Foot : matches.js n'est pas chargé.");
+
+        console.error(
+            "❌ Alpha-Foot : matches.js n'est pas chargé."
+        );
+
         return;
     }
+
+    console.log(
+        "✅ matches.js chargé :",
+        alphaMatches.length,
+        "match(s)"
+    );
+
+
+    // ==============================
+    // NORMALISATION DU TEXTE
+    // ==============================
+
+    function normalizeText(text) {
+
+        return String(text)
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .trim();
+
+    }
+
 
     // ==============================
     // RECHERCHE DU MATCH
@@ -14,20 +40,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function findMatch(button) {
 
-        const card = button.closest(".match-card");
+        const card =
+            button.closest(".match-card");
 
-        if (!card) return null;
+        if (!card) {
 
-        const text = card.innerText.toLowerCase();
+            console.error(
+                "❌ Impossible de trouver .match-card"
+            );
+
+            return null;
+        }
+
+
+        const teams =
+            normalizeText(
+                card.dataset.teams || ""
+            );
+
+
+        console.log(
+            "🔎 Recherche du match :",
+            teams
+        );
+
 
         return alphaMatches.find(match => {
 
+            const home =
+                normalizeText(match.home);
+
+            const away =
+                normalizeText(match.away);
+
+
             return (
-                text.includes(match.home.toLowerCase()) &&
-                text.includes(match.away.toLowerCase())
+                teams.includes(home) &&
+                teams.includes(away)
             );
 
         });
+
     }
 
 
@@ -37,165 +90,241 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showAnalysis(match) {
 
+        if (!match) {
+
+            alert(
+                "⚠️ Analyse indisponible pour ce match."
+            );
+
+            return;
+        }
+
+
+        // Supprime une ancienne fenêtre
         const oldPanel =
-            document.getElementById("alpha-analysis-panel");
+            document.getElementById(
+                "alpha-analysis-panel"
+            );
+
 
         if (oldPanel) {
             oldPanel.remove();
         }
 
-        const panel = document.createElement("div");
 
-        panel.id = "alpha-analysis-panel";
+        // Création du panneau
+        const panel =
+            document.createElement("div");
+
+
+        panel.id =
+            "alpha-analysis-panel";
+
 
         panel.innerHTML = `
 
-        <div class="alpha-overlay">
+            <div class="alpha-overlay">
 
-            <div class="alpha-modal">
+                <div class="alpha-modal">
 
-                <button class="alpha-close">×</button>
-
-                <div class="alpha-header">
-
-                    <div class="alpha-label">
-                        ⚡ ANALYSE ALPHA
-                    </div>
-
-                    <h2>
-                        ${match.home}
-                        <span>VS</span>
-                        ${match.away}
-                    </h2>
-
-                    <div class="alpha-league">
-                        ${match.league}
-                    </div>
-
-                </div>
+                    <button
+                        class="alpha-close"
+                        type="button"
+                        aria-label="Fermer">
+                        ×
+                    </button>
 
 
-                <div class="alpha-section">
+                    <div class="alpha-header">
 
-                    <h3>📊 Probabilités</h3>
-
-                    <div class="probabilities">
-
-                        <div>
-                            <strong>
-                                ${match.homeWin}%
-                            </strong>
-                            <span>
-                                ${match.home}
-                            </span>
+                        <div class="alpha-label">
+                            ⚡ ANALYSE ALPHA
                         </div>
 
-                        <div>
-                            <strong>
-                                ${match.draw}%
-                            </strong>
-                            <span>
-                                Nul
-                            </span>
-                        </div>
 
-                        <div>
-                            <strong>
-                                ${match.awayWin}%
-                            </strong>
-                            <span>
-                                ${match.away}
-                            </span>
+                        <h2>
+
+                            ${match.home}
+
+                            <span>VS</span>
+
+                            ${match.away}
+
+                        </h2>
+
+
+                        <div class="alpha-league">
+                            ${match.league}
                         </div>
 
                     </div>
 
-                </div>
+
+                    <div class="alpha-section">
+
+                        <h3>
+                            📊 Probabilités
+                        </h3>
 
 
-                <div class="alpha-score">
+                        <div class="probabilities">
 
-                    <small>
-                        🎯 SCORE PROBABLE
-                    </small>
+                            <div>
 
-                    <strong>
-                        ${match.score}
-                    </strong>
+                                <strong>
+                                    ${match.homeWin}%
+                                </strong>
 
-                </div>
+                                <span>
+                                    ${match.home}
+                                </span>
+
+                            </div>
 
 
-                <div class="alpha-grid">
+                            <div>
 
-                    <div>
-                        <small>⏱️ Mi-temps</small>
-                        <strong>
-                            ${match.halftime}
-                        </strong>
+                                <strong>
+                                    ${match.draw}%
+                                </strong>
+
+                                <span>
+                                    Nul
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    ${match.awayWin}%
+                                </strong>
+
+                                <span>
+                                    ${match.away}
+                                </span>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div>
-                        <small>🏁 Fin du match</small>
+
+                    <div class="alpha-score">
+
+                        <small>
+                            🎯 SCORE PROBABLE
+                        </small>
+
                         <strong>
-                            ${match.fulltime}
+                            ${match.score}
                         </strong>
+
                     </div>
 
-                    <div>
-                        <small>⚽ Buts</small>
-                        <strong>
-                            ${match.goals}
-                        </strong>
+
+                    <div class="alpha-grid">
+
+                        <div>
+
+                            <small>
+                                ⏱️ Mi-temps
+                            </small>
+
+                            <strong>
+                                ${match.halftime}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <small>
+                                🏁 Fin du match
+                            </small>
+
+                            <strong>
+                                ${match.fulltime}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <small>
+                                ⚽ Buts
+                            </small>
+
+                            <strong>
+                                ${match.goals}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <small>
+                                🔥 Confiance
+                            </small>
+
+                            <strong>
+                                ${match.confidence}
+                            </strong>
+
+                        </div>
+
                     </div>
 
-                    <div>
-                        <small>🔥 Confiance</small>
-                        <strong>
-                            ${match.confidence}
-                        </strong>
+
+                    <div class="alpha-section">
+
+                        <h3>
+                            ⭐ Joueur / secteur clé
+                        </h3>
+
+                        <p>
+                            ${match.keyPlayer}
+                        </p>
+
                     </div>
 
-                </div>
+
+                    <div class="alpha-section">
+
+                        <h3>
+                            🧠 Analyse Alpha
+                        </h3>
+
+                        <p>
+                            ${match.analysis}
+                        </p>
+
+                    </div>
 
 
-                <div class="alpha-section">
+                    <div class="alpha-risk">
 
-                    <h3>⭐ Joueur / secteur clé</h3>
+                        <h3>
+                            ⚠️ Risque
+                        </h3>
 
-                    <p>
-                        ${match.keyPlayer}
-                    </p>
+                        <p>
+                            ${match.risk}
+                        </p>
 
-                </div>
-
-
-                <div class="alpha-section">
-
-                    <h3>🧠 Analyse Alpha</h3>
-
-                    <p>
-                        ${match.analysis}
-                    </p>
-
-                </div>
-
-
-                <div class="alpha-risk">
-
-                    <h3>⚠️ Risque</h3>
-
-                    <p>
-                        ${match.risk}
-                    </p>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
-
         `;
+
 
         document.body.appendChild(panel);
 
@@ -204,51 +333,100 @@ document.addEventListener("DOMContentLoaded", () => {
         // FERMETURE
         // ==============================
 
-        panel
-            .querySelector(".alpha-close")
-            .addEventListener("click", () => {
-
-                panel.remove();
-
-            });
+        const closeButton =
+            panel.querySelector(".alpha-close");
 
 
-        panel
-            .querySelector(".alpha-overlay")
-            .addEventListener("click", event => {
+        if (closeButton) {
 
-                if (
-                    event.target.classList.contains(
-                        "alpha-overlay"
-                    )
-                ) {
+            closeButton.addEventListener(
+                "click",
+                () => {
 
                     panel.remove();
 
                 }
+            );
 
-            });
+        }
+
+
+        // Fermer en cliquant à l'extérieur
+        const overlay =
+            panel.querySelector(".alpha-overlay");
+
+
+        if (overlay) {
+
+            overlay.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target === overlay
+                    ) {
+
+                        panel.remove();
+
+                    }
+
+                }
+            );
+
+        }
 
     }
 
 
     // ==============================
-    // BOUTONS
+    // BOUTONS D'ANALYSE
     // ==============================
 
-    document
-        .querySelectorAll(".analysis-btn")
-        .forEach(button => {
+    const buttons =
+        document.querySelectorAll(
+            ".analysis-btn"
+        );
 
-            button.addEventListener("click", () => {
 
-                const match = findMatch(button);
+    console.log(
+        "🔘 Boutons d'analyse trouvés :",
+        buttons.length
+    );
+
+
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                console.log(
+                    "⚡ Bouton Analyse Alpha cliqué"
+                );
+
+
+                const match =
+                    findMatch(button);
+
 
                 if (match) {
+
+                    console.log(
+                        "✅ Match trouvé :",
+                        match.home,
+                        "vs",
+                        match.away
+                    );
+
 
                     showAnalysis(match);
 
                 } else {
+
+                    console.error(
+                        "❌ Aucun match correspondant trouvé."
+                    );
+
 
                     alert(
                         "⚠️ Analyse indisponible pour ce match."
@@ -256,13 +434,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-            });
+            }
+        );
 
-        });
+    });
 
 
     console.log(
-        "✅ Alpha-Foot utilise maintenant matches.js"
+        "✅ Alpha-Foot V7 prêt."
     );
 
 });
